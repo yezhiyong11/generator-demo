@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+
+<!-- 本地oracle jar位置 -->
+ <classPathEntry location="F:\repository\com\oracle\ojdbc14\10.2.0.4.0\ojdbc14-10.2.0.4.0.jar" />
+  <context id="context1" >
+  <commentGenerator>  
+    <!-- 是否去除自动生成的注释 true：是 ： false:否 -->  
+    <property name="suppressAllComments" value="false" />
+  </commentGenerator>
+
+      <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@192.168.0.216:1521:bigdata" userId="db_lfuc_dev" password="db_lfuc_dev" >
+          <!-- 针对oracle数据库 -->
+          <property name="remarksReporting" value="true"></property>
+      </jdbcConnection>
+    <!-- entity.java -->
+    <javaModelGenerator targetPackage="com.lp.entity" targetProject="generator-demo/src/main/java" >
+        <property name="enableSubPackages" value="ture"/>
+        <property name="trimStrings" value="true"/>
+    </javaModelGenerator>
+    <!-- mapper.xml -->
+    <sqlMapGenerator targetPackage="mapper" targetProject="generator-demo/src/main/resources" />
+    <!-- mapper.java -->
+    <javaClientGenerator targetPackage="com.lp.mapper" targetProject="generator-demo/src/main/java" type="XMLMAPPER" />
+    
+	<table  tableName="lfuc_custmanager" domainObjectName="LfucCustManager" enableCountByExample="true" enableUpdateByExample="true" enableDeleteByExample="true" enableSelectByExample="true" selectByExampleQueryId="true">
+    </table>
+  </context>
+</generatorConfiguration>
